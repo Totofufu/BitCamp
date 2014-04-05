@@ -143,6 +143,7 @@ td { padding: 10px; }
 }
 
 #upvote {
+	color:#FFFFFF;
 	transition: 0.5s;
 }
 
@@ -152,6 +153,7 @@ td { padding: 10px; }
 }
 
 #downvote {
+	color:#FFFFFF;
 	transition: 0.5s;
 }
 
