@@ -32,6 +32,7 @@ a {
 nav ul li a:hover {
 	/*color: ;*/
 	text-decoration: underline;
+	color: #A523FF;
 }
 
 /* HEADER */
@@ -40,7 +41,10 @@ header {
 	margin-top: 0px;
 }
 
-header h1 { color: #000; }
+header h1 { 
+	color: #000; 
+	height: calc(100%-10px);
+}
 
 header h5 { padding-top: 0px;}
 
