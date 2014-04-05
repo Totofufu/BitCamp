@@ -20,7 +20,8 @@
             <li><a href="base.html">Home</a></li>
             <li><a href="submit.html">Submit</a></li>
             <li><a href="faq.html">FAQ</a></li>
-            <li><a href="mostpopular.html">Most Popular</a></li>
+            <li><a href="bestbest.html">Best of the Best</a></li>
+            <li><a href="worstworst.html">Worst of the Worst</a></li>
           </ul>
         </nav>
         </div>
@@ -32,8 +33,8 @@
 
 		<div class = "post_creator">
 			<form method = post action = "/newpost">
-				Name: <input type= "text" name = "name"/>
-				Post: <input type= "text" name = "text"/>
+				Name: <input type= "text" name = "name" min="0" autocomplete="off"/>
+				Post: <input type= "textarea" name = "text" rows="5" cols="20" min="0" autocomplete="off"/>
 				<input type = submit value = "add post"/>
 			</form>
 		</div>
