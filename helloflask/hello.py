@@ -14,10 +14,6 @@ def homePage():
 def faqPage():
 	return render_template('faq.html')
 
-@app.route('/mostpopular.html')
-def popularPage():
-	return render_template('mostpopular.html')
-
 @app.route('/submit.html')
 def submitPage():
 	return render_template('submit.html')
@@ -27,6 +23,14 @@ def individualPost(post):
 	#thePost = posts.get_post_with_url(url_text)
 	postList = posts.getText(post)
 	return render_template('post.html',post = postList)
+
+@app.route('/bestbest.html')
+def bestBest():
+	return render_template('bestbest.html')
+
+@app.route('/worstworst.html')
+def worstWorst():
+	return render_template('worstworst.html')
 
 @app.route('/newpost', methods = ['GET','POST'])
 def insert_newpost():

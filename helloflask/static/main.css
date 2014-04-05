@@ -167,3 +167,23 @@ td { padding: 10px; }
 	padding: 25px;
 	background-color:#E9967A;
 }
+
+#submitbody {
+	margin-left: 70px;
+	margin-top: 35px;
+}
+
+#bestbestbody {
+	margin-left: 70px;
+	margin-top: 35px;
+}
+
+#worstworstbody {
+	margin-left: 70px;
+	margin-top: 35px;
+}
+
+#submitbox{
+	margin-left: 20px;
+	margin-top: 20px;
+}
