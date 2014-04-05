@@ -29,9 +29,9 @@ a {
 	/*color: ;*/
 }
 
-a:hover {
+nav ul li a:hover {
 	/*color: ;*/
-	/*text-decoration: underline;*/
+	text-decoration: underline;
 }
 
 /* HEADER */
