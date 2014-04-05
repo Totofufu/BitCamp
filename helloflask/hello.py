@@ -22,10 +22,11 @@ def popularPage():
 def submitPage():
 	return render_template('submit.html')
 
-@app.route('/post/<url_text>')
-def individualPost(url_text):
-	thePost = posts.get_post_with_url(url_text)
-	return render_template('post.html',post = thePost)
+@app.route('/post/<post>')
+def individualPost(post):
+	#thePost = posts.get_post_with_url(url_text)
+	postList = posts.getText(post)
+	return render_template('post.html',post = postList)
 
 @app.route('/newpost', methods = ['GET','POST'])
 def insert_newpost():

@@ -9,7 +9,6 @@ class PostsDAO(object):
 	def get_posts(self):
 		postList = []
 		for post in self.posts.find():
-			print post
 			postList.append([post['name'], post['text'], post['url']])
 		return postList
 
@@ -32,6 +31,11 @@ class PostsDAO(object):
 		if parse[-1] == "-":
 			parse = parse[:-1]
 		return parse
+
+	def getText(self,url):
+		for post in self.posts.find():
+			if post["url"] == url:
+				return [post["text"],post["name"]]
 
 	# def incrementUp(self, url_str):
 	# 	self.posts.update({url:url_str},{$inc:{likes:1}})
