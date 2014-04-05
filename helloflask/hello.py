@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/')
 def homePage():
 	myName = posts.get_posts()
-	return render_template('base.html', posts = myName)
+	return render_template('base.html', posts = myName[::-1])
 
 @app.route('/faq.html')
 def faqPage():
@@ -21,8 +21,9 @@ def popularPage():
 def submitPage():
 	return render_template('submit.html')
 
-@app.route('/<postID>')
+@app.route('/post/<postID>')
 def individualPoast(postID):
+	print postID
 	post = posts.get_post_with_ID(postID)
 	return render_template('post.html',post = post)
 

@@ -10,7 +10,7 @@ class PostsDAO(object):
 		postList = []
 		for post in self.posts.find():
 			print post
-			postList.append([post['name'], post['text']])
+			postList.append([post['name'], post['text'], post['_id']])
 		return postList
 
 	def insert_post(self, name, text):
