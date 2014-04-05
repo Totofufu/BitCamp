@@ -26,16 +26,10 @@
 
 
         <div id = "posts-section">
-            <h2> Posts </h2>
-
-            {% for post in posts %}
-              <a href = "{{post['id']}}">
-                <div class = "name" id = "posts">
-                    {{post[1]}}
-                    <h3> {{post[0]}} </h3>
-                </div>
-              </a>
-            {% endfor %}
+            <div class = "name" id = "posts">
+                {{post[1]}}
+                <h3> {{post[0]}} </h3>
+            </div>
         </div>
 
 	</body>

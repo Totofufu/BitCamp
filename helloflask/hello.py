@@ -21,6 +21,11 @@ def popularPage():
 def submitPage():
 	return render_template('submit.html')
 
+@app.route('/<postID>')
+def individualPoast(postID):
+	post = posts.get_post_with_ID(postID)
+	return render_template('post.html',post = post)
+
 @app.route('/newpost', methods = ['GET','POST'])
 def insert_newpost():
 	name = request.form["name"]

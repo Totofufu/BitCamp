@@ -14,6 +14,10 @@ class PostsDAO(object):
 		return postList
 
 	def insert_post(self, name, text):
-		newPost = {"name": name, "text": text}
+		newPost = {"name": name, "text": text, "likes": 0}
 		self.posts.insert(newPost)
+
+	def get_post_with_ID(self, postID):
+		post = self.posts.find({_id: postID})
+		return post
 		
