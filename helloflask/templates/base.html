@@ -4,8 +4,8 @@
 	<head>
 		<title>Homepage | JudgeMeHarder</title>
     <meta name="author(s)" content="Eileen Jiang, Tina Luo, Rohan Varma, Ian Qu-Wah" />
-    <link rel="stylesheet" href="css/fonts.css" type="text/css" charset="utf-8">
-    <link rel="stylesheet" href="css/main.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts.css') }}" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" type="text/css" charset="utf-8">
     <link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
 	</head>
 
@@ -17,7 +17,7 @@
 
 		  <nav>
       		<ul>
-        		<li><a href="base.html">Home</a></li>
+        		<li><a href="/">Home</a></li>
         		<li><a href="submit.html">Submit</a></li>
         		<li><a href="faq.html">FAQ</a></li>
         		<li><a href="mostpopular.html">Most Popular</a></li>
