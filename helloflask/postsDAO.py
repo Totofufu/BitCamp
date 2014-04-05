@@ -15,7 +15,7 @@ class PostsDAO(object):
 
 	def insert_post(self, name, text):
 		urlParse = self.parseText(text)
-		newPost = {"name": name, "text": text, "likes": 0, "url": urlParse}
+		newPost = {"name": name, "text": text, "likes": 0, "dislikes": 0, "url": urlParse}
 		self.posts.insert(newPost)
 
 	def get_post_with_url(self, url_text):
