@@ -13,7 +13,6 @@ pymongo==2.6.3
 pyOpenSSL==0.13
 python-dateutil==1.5
 pytz==2012d
-scipy==0.11.0
 stevedore==0.14.1
 virtualenv==1.11.2
 virtualenv-clone==0.2.4
