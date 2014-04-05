@@ -6,10 +6,23 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" type="text/css" charset="utf-8">
 	</head>
 
-	<body id = "submit">
+	<body id = "home">
 		<header>
-			<h1>Confess a Decision</h1>
+			<div id = "masthead">
+  			<h1>JudgeMeHarder <h5>a website for decisions and confessions</h5></h1>
+      		<nav>
+      		<ul>
+        		<li><a href="/">Home</a></li>
+        		<li><a href="submit.html">Submit</a></li>
+        		<li><a href="faq.html">FAQ</a></li>
+        		<li><a href="mostpopular.html">Most Popular</a></li>
+      		</ul>
+    		</nav>
+    		</div>
 		</header>
+
+		
+		<h2>Confess a Decision</h2>
 
 		<div class = "post_creator">
 			<form method = post action = "/newpost">

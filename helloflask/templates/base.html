@@ -11,24 +11,25 @@
 
 	<body id = "home">
 		<header>
-			<h1>JudgeMeHarder</h1>
-      <h5>a website for decisions and confessions</h5>
+      <div id = "masthead">
+  			<h1>JudgeMeHarder <h5>a website for decisions and confessions</h5></h1>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="submit.html">Submit</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="mostpopular.html">Most Popular</a></li>
+          </ul>
+        </nav>
+      </div>
 		</header>
 
-		  <nav>
-      		<ul>
-        		<li><a href="/">Home</a></li>
-        		<li><a href="submit.html">Submit</a></li>
-        		<li><a href="faq.html">FAQ</a></li>
-        		<li><a href="mostpopular.html">Most Popular</a></li>
-      		</ul>
-    	</nav>
 
-        <div id = "posts">
+        <div id = "posts-section">
             <h2> Posts </h2>
-            
+
             {% for post in posts %}
-                <div class = "name">
+                <div class = "name" id = "posts">
                     {{post[1]}}
                     <h3> {{post[0]}} </h3>
                 </div>

@@ -6,8 +6,8 @@ body {
 	background: #FFD2BF;
 	color: SeaGreen;
 	text-align: left;
-	padding-top: 20px;
-	padding-left: 100px;
+	padding-top: 0px;
+	padding-left: 0px;
 /*	font-family: Sansation;*/
 /*	font-family: GoodDog;*/
 	/*font-family: Journal;*/
@@ -42,8 +42,8 @@ a:hover {
 
 /* HEADER */
 header {
-	margin-left: 30px;
-	margin-top: 10px;
+	margin-left: 0px;
+	margin-top: 0px;
 }
 
 header h1 { color: #000; }
@@ -113,3 +113,28 @@ table .year {
 tr { border-bottom: solid 1.5px; }
 th { padding: 5px; }
 td { padding: 10px; }
+
+#posts-section {
+	margin: 10px;
+	margin-left:150px;
+}
+
+#posts {
+	width:1000px;
+	padding:10px;
+	margin:10px;
+	background-color:#E9967A;
+	transition: 0.5s;
+}
+
+#posts:hover{
+	background-color: #FFFAFA;
+	color:#DC143C;
+	transition: 0.5s;
+}
+
+#masthead {
+	width:100%;
+	padding: 25px;
+	background-color:#E9967A;
+}
