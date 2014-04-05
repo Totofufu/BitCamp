@@ -23,9 +23,8 @@ def submitPage():
 
 @app.route('/post/<postID>')
 def individualPoast(postID):
-	print postID
-	post = posts.get_post_with_ID(postID)
-	return render_template('post.html',post = post)
+	thePost = posts.get_post_with_ID(postID)
+	return render_template('post.html',post = thePost)
 
 @app.route('/newpost', methods = ['GET','POST'])
 def insert_newpost():

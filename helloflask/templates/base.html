@@ -29,7 +29,7 @@
             <h2> Posts </h2>
 
             {% for post in posts %}
-              <a href = "post/{{post['_id']}}">
+              <a href = "post/{{post[2]}}">
                 <div class = "name" id = "posts">
                     {{post[1]}}
                     <h3> {{post[0]}} </h3>

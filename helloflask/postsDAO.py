@@ -18,6 +18,7 @@ class PostsDAO(object):
 		self.posts.insert(newPost)
 
 	def get_post_with_ID(self, postID):
-		post = self.posts.find({_id: postID})
+		query = ObjectId(postID)
+		post = self.posts.find({"_id": query})
 		return post
 		
