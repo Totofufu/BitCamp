@@ -26,11 +26,13 @@ def individualPost(post):
 
 @app.route('/bestbest.html')
 def bestBest():
-	return render_template('bestbest.html')
+	top10 = posts.getBestTen()
+	return render_template('bestbest.html', posts = top10)
 
 @app.route('/worstworst.html')
 def worstWorst():
-	return render_template('worstworst.html')
+	worst10 = posts.getWorstTen()
+	return render_template('worstworst.html', posts = worst10)
 
 @app.route('/newpost', methods = ['GET','POST'])
 def insert_newpost():

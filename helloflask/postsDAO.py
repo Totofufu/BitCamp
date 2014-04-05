@@ -9,11 +9,8 @@ class PostsDAO(object):
 	def get_posts(self):
 		postList = []
 		for post in self.posts.find():
-			likes, dislikes = int(post['likes']), int(post['dislikes'])
-			#redD = 255*(float(likes)/(dislikes+likes))
-			#greenD = 255 - redD
-			#color = "#" + decToHex(redD) + decToHex(greenD) + "00"
-			postList.append([post['name'], post['text'], post['url'], likes, dislikes])
+			#color = self.makePixel(int(post['likes']), int(post['dislikes']))
+			postList.append([post['name'], post['text'], post['url'], post['likes'], post['dislikes']])
 		return postList
 
 	def insert_post(self, name, text):
@@ -36,6 +33,24 @@ class PostsDAO(object):
 			parse = parse[:-1]
 		return parse
 
+	def getBestTen(self):
+		top10List = []
+		#orderedPosts = self.posts.find().sort({"likes": -1})
+		#top10Posts = orderedPosts[:10]
+		for post in self.posts.find():
+			top10List.append([post['name'], post['text'], post['url'], post['likes'], post['dislikes']])
+		top10List.sort(likesCmp)
+		return top10List[:10]
+
+	def getWorstTen(self):
+		top10List = []
+		#orderedPosts = self.posts.find().sort({"likes": -1})
+		#top10Posts = orderedPosts[:10]
+		for post in self.posts.find():
+			top10List.append([post['name'], post['text'], post['url'], post['likes'], post['dislikes']])
+		top10List.sort(dislikesCmp)
+		return top10List[:10]
+
 	def getText(self,url):
 		for post in self.posts.find():
 			if post["url"] == url:
@@ -46,6 +61,12 @@ class PostsDAO(object):
 
 	def incrementDown(self, url_str):
 		self.posts.update({"url":url_str},{"$inc":{"dislikes":1}})
+
+	def makePixel(self, likes, dislikes):
+		redD = 255*(float(likes)/(dislikes+likes))
+		greenD = 255 - redD
+		color = "#" + decToHex(redD) + decToHex(greenD) + "00"
+		return color
 
 	def decToHex(self, dec):
 		decToHex = {10:"A",11:"B",12:"C",13:"D",14:"E",15:"F"}
@@ -58,8 +79,11 @@ class PostsDAO(object):
 		return str(firstDig) + str(secondDig)
 
 
+def likesCmp(a1, a2):
+	return a2[3] - a1[3]
 
-
+def dislikesCmp(a1, a2):
+	return a2[4] - a1[4]
 
 
 		
