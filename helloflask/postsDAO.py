@@ -1,6 +1,6 @@
 import string
 
-class DecisionPostsDAO(object):
+class PostsDAO(object):
 
 	def __init__(self, database):
 		self.db = database
@@ -15,5 +15,5 @@ class DecisionPostsDAO(object):
 
 	def insert_post(self, name, text):
 		newPost = {'name': name, "text": text}
-		self.Posts.insert(newPost)
+		self.posts.insert(newPost)
 		

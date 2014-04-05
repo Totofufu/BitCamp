@@ -1,5 +1,5 @@
 import os, pymongo, postsDAO
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, request
 
 
 app = Flask(__name__)
@@ -23,16 +23,16 @@ def submitPage():
 
 @app.route('/newpost', methods = ['POST'])
 def insert_newpost():
-	name = bottle.request.forms.get("name")
-	text = bottle.request.forms.get("text")
+	name = request.forms["name"]
+	text = request.forms["text"]
 	posts.insert_post(name, text)
-	app.redirect('/')
+	redirect('/')
 
 connection_string = "mongodb://rnvarma:bitcampcmu@oceanic.mongohq.com:10011/app23759697"
 
 connection = pymongo.MongoClient(connection_string)
-database = connection.Posts
-posts = decisionPostsDAO.decisionPostsDAO(database)
+database = connection.app23759697
+posts = postsDAO.PostsDAO(database)
 
 if __name__ == '__main__':
     app.run()
