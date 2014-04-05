@@ -28,7 +28,7 @@ def insert_newpost():
 	posts.insert_post(name, text)
 	app.redirect('/')
 
-connection_string = "mongodb://heroku:bd0ddad12dc3420f84c31f91cc65fc7d@oceanic.mongohq.com:10011/app23759697"
+connection_string = "mongodb://rnvarma:bitcampcmu@oceanic.mongohq.com:10011/app23759697"
 
 connection = pymongo.MongoClient(connection_string)
 database = connection.Posts
