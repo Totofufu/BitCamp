@@ -11,13 +11,12 @@
 			<h1>Confess a Decision</h1>
 		</header>
 
-		<div id = "confession">
-			<form>
-				<input id="textbox" type="text" />
+		<div class = "post_creator">
+			<form method = "post" class = "form" action = "/newpost" method = 'post'>
+				Name: <input type= "text" name = "name"/>
+				Post: <input type= "text" name = "text"/>
+				<input type = "submit" value = "add post"/>
 			</form>
-			<script> 
-				var decision = document.getElementbyId("textbox").value;
-			</script>
 		</div>
 	</body>
 
