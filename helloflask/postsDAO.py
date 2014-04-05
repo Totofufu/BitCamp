@@ -32,4 +32,16 @@ class PostsDAO(object):
 		if parse[-1] == "-":
 			parse = parse[:-1]
 		return parse
+
+	# def incrementUp(self, url_str):
+	# 	self.posts.update({url:url_str},{$inc:{likes:1}})
+
+	# def incrementDown(self, url_str):
+	# 	self.posts.update({url:url_str},{$inc:{dislikes:1}})
+
+
+
+
+
+
 		

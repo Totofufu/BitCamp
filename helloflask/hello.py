@@ -32,6 +32,16 @@ def insert_newpost():
 	name = request.form["name"]
 	text = request.form["text"]
 	posts.insert_post(name, text)
+	return render_template('base.html', posts = posts.get_posts()[::-1])
+
+@app.route('/upvote/<url_str>')
+def incrementUpvote(url_str):
+	posts.update({"url":url_str},{"$inc":{"likes":1}})
+	return render_template('base.html', posts = posts.get_posts())
+
+@app.route('/downvote/<url_str>')
+def incrementDownVote(url_str):
+	posts.update({"url":url_str},{"$inc":{"dislikes":1}})
 	return render_template('base.html', posts = posts.get_posts())
 
 connection_string = "mongodb://rnvarma:bitcampcmu@oceanic.mongohq.com:10011/app23759697"
