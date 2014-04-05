@@ -49,6 +49,16 @@ def incrementDownVote(url_str):
 	posts.incrementDown(url_str)
 	return redirect("/")
 
+@app.route('/upvotep/<url_str>')
+def incrementUpvoteP(url_str):
+	posts.incrementUp(url_str)
+	return redirect("/post/" + url_str)
+
+@app.route('/downvotep/<url_str>')
+def incrementDownVoteP(url_str):
+	posts.incrementDown(url_str)
+	return redirect("/post/" + url_str)
+
 connection_string = "mongodb://rnvarma:bitcampcmu@oceanic.mongohq.com:10011/app23759697"
 #connection_string = "mongodb://localhost"
 

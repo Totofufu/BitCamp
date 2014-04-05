@@ -39,9 +39,9 @@
                     <h3> {{post[0]}} </h3>
                 </div>
               </a>
-                <div style="clear:both;"id ="rate-bar">
-                    <h5 style="float:left;"><a href="/upvote/{{post[2]}}" id="upvote">You Go Bro!</a></h5>
-                    <h5 style="float:right;"><a href="/downvote/{{post[2]}}" id="downvote">Uhh.. Good luck with that?</a></h5>
+                <div style="clear:both;" id ="rate-bar">
+                    <h5 style="float:left;"><a href="/upvote/{{post[2]}}" id="upvote">You Go Bro! {{post[3]}}</a></h5>
+                    <h5 style="float:right;"><a href="/downvote/{{post[2]}}" id="downvote">{{post[4]}} Uhh.. Good luck with that?</a></h5>
                 </div>
             {% endfor %}
         </div>
