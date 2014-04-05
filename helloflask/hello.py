@@ -6,8 +6,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def homePage():
-	posts_list = posts.get_posts()
-	return render_template('base.html')
+	myName = posts.get_posts()
+	return render_template('base.html', posts = myName)
 
 @app.route('/faq.html')
 def faqPage():
@@ -29,6 +29,7 @@ def insert_newpost():
 	redirect('/')
 
 connection_string = "mongodb://rnvarma:bitcampcmu@oceanic.mongohq.com:10011/app23759697"
+#connection_string = "mongodb://localhost"
 
 connection = pymongo.MongoClient(connection_string)
 database = connection.app23759697
