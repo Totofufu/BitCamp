@@ -22,6 +22,14 @@ def popularPage():
 def submitPage():
 	return render_template('submit.html')
 
+@app.route('/bestbest.html')
+def bestBest():
+	return render_template('bestbest.html')
+
+@app.route('/worstworst.html')
+def worstWorst():
+	return render_template('worstworst.html')
+
 @app.route('/post/<url_text>')
 def individualPost(url_text):
 	thePost = posts.get_post_with_url(url_text)
