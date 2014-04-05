@@ -37,17 +37,17 @@ def insert_newpost():
 	name = request.form["name"]
 	text = request.form["text"]
 	posts.insert_post(name, text)
-	return render_template('base.html', posts = posts.get_posts()[::-1])
+	return redirect("/")
 
 @app.route('/upvote/<url_str>')
 def incrementUpvote(url_str):
 	posts.incrementUp(url_str)
-	return render_template('base.html', posts = posts.get_posts()[::-1])
+	return redirect("/")
 
 @app.route('/downvote/<url_str>')
 def incrementDownVote(url_str):
 	posts.incrementDown(url_str)
-	return render_template('base.html', posts = posts.get_posts()[::-1])
+	return redirect("/")
 
 connection_string = "mongodb://rnvarma:bitcampcmu@oceanic.mongohq.com:10011/app23759697"
 #connection_string = "mongodb://localhost"
