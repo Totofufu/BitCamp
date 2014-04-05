@@ -41,13 +41,13 @@ def insert_newpost():
 
 @app.route('/upvote/<url_str>')
 def incrementUpvote(url_str):
-	posts.update({"url":url_str},{"$inc":{"likes":1}})
-	return render_template('base.html', posts = posts.get_posts())
+	posts.incrementUp(url_str)
+	return render_template('base.html', posts = posts.get_posts()[::-1])
 
 @app.route('/downvote/<url_str>')
 def incrementDownVote(url_str):
-	posts.update({"url":url_str},{"$inc":{"dislikes":1}})
-	return render_template('base.html', posts = posts.get_posts())
+	posts.incrementDown(url_str)
+	return render_template('base.html', posts = posts.get_posts()[::-1])
 
 connection_string = "mongodb://rnvarma:bitcampcmu@oceanic.mongohq.com:10011/app23759697"
 #connection_string = "mongodb://localhost"

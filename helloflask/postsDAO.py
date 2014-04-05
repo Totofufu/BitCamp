@@ -37,11 +37,11 @@ class PostsDAO(object):
 			if post["url"] == url:
 				return [post["text"],post["name"]]
 
-	# def incrementUp(self, url_str):
-	# 	self.posts.update({url:url_str},{$inc:{likes:1}})
+	def incrementUp(self, url_str):
+		self.posts.update({"url":url_str},{"$inc":{"likes":1}})
 
-	# def incrementDown(self, url_str):
-	# 	self.posts.update({url:url_str},{$inc:{dislikes:1}})
+	def incrementDown(self, url_str):
+		self.posts.update({"url":url_str},{"$inc":{"dislikes":1}})
 
 
 
