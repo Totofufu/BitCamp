@@ -26,7 +26,7 @@ def insert_newpost():
 	name = request.form["name"]
 	text = request.form["text"]
 	posts.insert_post(name, text)
-	homePage()
+	return render_template('base.html', posts = posts.get_posts())
 
 connection_string = "mongodb://rnvarma:bitcampcmu@oceanic.mongohq.com:10011/app23759697"
 #connection_string = "mongodb://localhost"
