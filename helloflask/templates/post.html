@@ -12,23 +12,27 @@
 	<body id = "home">
 		<header>
       <div id = "masthead">
-  			<h1>JudgeMeHarder <h5>a website for decisions and confessions</h5></h1>
+        <div style="clear: both">
+            <h1 style="float: left; padding-right:20px;"> JudgeMeHarder</h1>
+            <h5 style="padding-top: 10px; padding-left:30px;">a website for decisions and confessions</h5>
+            <!--h1>JudgeMeHarder <h5>a website for decisions and confessions</h5></h1-->
         <nav>
-          <ul>
+          <ul style ="float:up">
             <li><a href="/">Home</a></li>
-            <li><a href="submit.html">Submit</a></li>
+            <!--li><a href="submit.html">Submit</a></li>
             <li><a href="faq.html">FAQ</a></li>
-            <li><a href="mostpopular.html">Most Popular</a></li>
+            <li><a href="mostpopular.html">Most Popular</a></li-->
           </ul>
         </nav>
+        </div>
       </div>
-		</header>
+    </header>
 
 
         <div id = "posts-section">
             <div class = "name" id = "posts">
-                {{post[1]}}
-                <h3> {{post[0]}} </h3>
+                {{post}}
+                <h3> {{post}} </h3>
             </div>
         </div>
 
