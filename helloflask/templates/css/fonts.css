@@ -1,0 +1,15 @@
+/* CSS for MediaMaster :: 67-103 Exercise 4 */
+
+@font-face {
+        font-family: 'Sansation'; 
+    src: url('../fonts/Sansation/Sansation_Regular.ttf'); 
+
+    font-family: 'GoodDog'; 
+    src: url('../fonts/GoodDog/GoodDog.otf'); 
+
+        /*font-family: 'Journal';
+        src: url('../fonts/Journal/journal.ttf');*/
+
+        font-family: 'DistantGalaxy';
+    src: url('../fonts/Distant-Galaxy/DISTGRG_.ttf'); 
+}

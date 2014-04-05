@@ -1,0 +1,115 @@
+/* CSS */
+
+body {
+	margin: 0;
+	padding: 0;
+	background: #FFD2BF;
+	color: SeaGreen;
+	text-align: left;
+	padding-top: 20px;
+	padding-left: 100px;
+/*	font-family: Sansation;*/
+/*	font-family: GoodDog;*/
+	/*font-family: Journal;*/
+/*	font-family: DistantGalaxy;*/
+	font-family: 'Special Elite', cursive;
+	font-size: 1.25em;
+	/*font-size: 100%;*/
+	/*font-size: 100%;*/
+
+}
+
+h1, h2, h3 {
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+	font-size: 1em;
+	/*color: ;*/
+}
+
+h1 { font-size: 2em; }
+h2 { font-size: 1.4em; }
+
+a {
+	text-decoration: none;
+	/*color: ;*/
+}
+
+a:hover {
+	/*color: ;*/
+	text-decoration: underline;
+}
+
+/* HEADER */
+header {
+	margin-left: 30px;
+	margin-top: 10px;
+}
+
+header h1 { color: #000; }
+
+header h5 { padding-top: 0px;}
+
+/* NAV */
+nav {
+	width: 100%;
+	height: 36px;
+	/*background: ;*/
+}
+
+nav ul {
+	list-style: none;
+	line-height: normal;
+	padding-left: 5px;
+}
+
+nav li a {
+	float: left;
+	/*color: ;*/
+	padding: 10px 15px 0px 15px;
+}
+
+/* CONTENT */
+#content { margin: 10px; }
+
+/* FOOTER */
+footer {
+	text-align: center;
+	margin-top: 30px;
+	padding: 5px;
+	/*background: ;*/
+	font-size: 90%;
+}
+
+/* TABLE */
+table {
+	width: 90%;
+	margin-left: 10px;
+	padding: 15px;
+	cellspacing: 10px;
+	border-collapse:collapse;
+}
+
+thead {
+	/*background: ;*/
+	/*color: ;*/
+	vertical-align: center;
+	height: 80px;
+	border: solid 1.5px;
+}
+
+table .title { 
+	width: 200px; 
+	vertical-align: top;
+	/*color: ; */
+}
+
+table .year { 
+	width: 80px; 
+	vertical-align: top; 
+	text-align: center;
+}
+
+tr { border-bottom: solid 1.5px; }
+th { padding: 5px; }
+td { padding: 10px; }
