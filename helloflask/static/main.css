@@ -31,7 +31,7 @@ a {
 
 a:hover {
 	/*color: ;*/
-	text-decoration: underline;
+	/*text-decoration: underline;*/
 }
 
 /* HEADER */
@@ -114,9 +114,11 @@ td { padding: 10px; }
 }
 
 #posts {
-	width:1000px;
+	width:80%;
 	padding:10px;
-	margin:10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
 	background-color:#E9967A;
 	transition: 0.5s;
 }
@@ -124,6 +126,36 @@ td { padding: 10px; }
 #posts:hover{
 	background-color: #FFFAFA;
 	color:#DC143C;
+	transition: 0.5s;
+}
+
+#rate-bar {
+	width:80%;
+	height: 35px;
+	color:white;
+	padding: 10px;
+	padding-bottom: 20px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	background-color: black;
+	text-align: center;
+}
+
+#upvote {
+	transition: 0.5s;
+}
+
+#upvote:hover {
+	color:#00FF00;
+	transition: 0.5s;
+}
+
+#downvote {
+	transition: 0.5s;
+}
+
+#downvote:hover {
+	color:#FF0000;
 	transition: 0.5s;
 }
 
