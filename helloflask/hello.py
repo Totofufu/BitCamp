@@ -1,5 +1,5 @@
 import os, pymongo, postsDAO
-from flask import Flask, render_template, redirect, request
+from flask import Flask, render_template, redirect, request, url_for
 
 
 app = Flask(__name__)
@@ -21,12 +21,12 @@ def popularPage():
 def submitPage():
 	return render_template('submit.html')
 
-@app.route('/newpost', methods = ['POST'])
+@app.route('/newpost', methods = ['GET','POST'])
 def insert_newpost():
-	name = request.forms["name"]
-	text = request.forms["text"]
+	name = request.form["name"]
+	text = request.form["text"]
 	posts.insert_post(name, text)
-	redirect('/')
+	homePage()
 
 connection_string = "mongodb://rnvarma:bitcampcmu@oceanic.mongohq.com:10011/app23759697"
 #connection_string = "mongodb://localhost"

@@ -14,6 +14,6 @@ class PostsDAO(object):
 		return postList
 
 	def insert_post(self, name, text):
-		newPost = {'name': name, "text": text}
+		newPost = {"name": name, "text": text}
 		self.posts.insert(newPost)
 		
