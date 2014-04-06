@@ -90,6 +90,27 @@ class PostsDAO(object):
 			secondDig = decToHex[secondDig]
 		return str(firstDig) + str(secondDig)
 
+	def makeSearch(self, query):
+		postsList = []
+		postScores = []
+		for word in query.split():
+			for post in self.posts.find():
+				if (word in post['text']) or (word in post["name"]):
+					if post in postsList:
+						postScores[postsList.index(post)] += 1
+					else:
+						postsList.append(post)
+						postScores.append(1)
+		zipList = zip(postsList, postScores)
+		zipList.sort()
+		finalList = []
+		for (post, num) in zipList:
+			if post['likes'] + post['dislikes'] > 0:
+				color = self.makePixel(int(post['likes']), int(post['dislikes']))
+			else: color = "black"
+			finalList.append([post['name'], post['text'], post['url'], post['likes'], post['dislikes'], color])
+		return finalList
+
 	# def parseDate(self, dateStr):
 	# 	months = {1:'Jan', 2:'Feb', 3:'Mar', 4:'Apr', 5:'May', 6:'Jun', 7:'Jul', 8:'Aug', 9:'Sep', 10:'Oct', 11:'Nov', 12:'Dec'}
 	# 	date, time = dateStr.split()
@@ -114,5 +135,6 @@ def likesCmp(a1, a2):
 def dislikesCmp(a1, a2):
 	return a2[4] - a1[4]
 
-
+def postCmp(a1,a2):
+	return a2[1] - a1[1]
 		

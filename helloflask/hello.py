@@ -13,7 +13,6 @@ def homePage(pageNum = 1):
     else: has_back = True
     myName = posts.get_posts()
     lenOfMyName = len(myName)
-    print "len: ", lenOfMyName
     myName = myName[::-1]
     postNum = (pageNum-1)*10 
     if (10*pageNum <= lenOfMyName):
@@ -26,19 +25,15 @@ def homePage(pageNum = 1):
     #no back or next
     if not (has_next or has_back): no_move = True
     else: no_move = False
-    print "no move", no_move
     #on first page, so no back, but 10+ posts
     if (has_next and not has_back): next = True
     else: next = False
-    print "next: ", next
     #on last page
     if (not has_next and has_back): back = True
     else: back = False
-    print "back: ", back
     #has both back and next buttons
     if (has_next and has_back): both = True
     else: both = False
-    print "both: ", both
     return render_template('base.html', posts = myName, pageNBack = pageNum-1, 
         pageNNext = pageNum+1, pageN = pageNum, noMove = no_move, goNext = next, goBack = back, 
         goBoth = both)
@@ -77,6 +72,14 @@ def insert_newpost():
     text = request.form["text"]
     posts.insert_post(name, text)
     return redirect("/")
+
+@app.route('/makesearch', methods = ["GET", "POST"])
+def make_search():
+    print 1
+    query = request.form["query"]
+    print 2
+    postList = posts.makeSearch(query)
+    return render_template('searchResults.html', posts = postList)
 
 @app.route('/upvote/<url_str>')
 def incrementUpvote(url_str):
