@@ -174,7 +174,7 @@ td { padding: 10px; }
 }
 
 #upvote:hover {
-	color:#BBFFFF;
+	color:#000;
 	transition: 0.5s;
 }
 
@@ -184,7 +184,7 @@ td { padding: 10px; }
 }
 
 #downvote:hover {
-	color:#BBFFFF;
+	color:#000;
 	transition: 0.5s;
 }
 
