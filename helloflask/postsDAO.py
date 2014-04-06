@@ -71,7 +71,11 @@ class PostsDAO(object):
 	def getText(self,url):
 		for post in self.posts.find():
 			if post["url"] == url:
-				return [post["text"],post["name"],post["url"], post["likes"], post["dislikes"]]
+				if post['likes'] + post['dislikes'] > 0:
+					color = self.makePixel(int(post['likes']), int(post['dislikes']))
+				else: color = "black"
+				return [post["text"],post["name"],post["url"], post["likes"], post["dislikes"], color,
+						post['tf']]
 
 	def incrementUp(self, url_str):
 		self.posts.update({"url":url_str},{"$inc":{"likes":1}})
