@@ -235,7 +235,7 @@ td { padding: 10px; }
 /* SEARCH PAGE FUNCTIONS */
 
 #searchpage{
-	margin-top: 150px;
+	margin-top: 20px;
 	margin-left: 20%;
 	margin-right: 20%;
 	padding-top: 20px;
@@ -270,6 +270,12 @@ td { padding: 10px; }
 	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
 }
 
+/* RANDOM PAGE */
+
+#randompost{
+	margin-left: 100px;
+	margin-top: 30px;
+}
 
 /* CLOUD ANIMATION */
 

@@ -1,5 +1,6 @@
 import os, pymongo, postsDAO
 from flask import Flask, render_template, redirect, request, url_for
+from random import randint
 
 
 app = Flask(__name__)
@@ -62,6 +63,13 @@ def worstWorst():
     worst10 = posts.getWorstTen()
     return render_template('worstworst.html', posts = worst10)
 
+@app.route('/random.html')
+def random_post():
+    myName = posts.get_posts()
+    lenOfMyName = len(myName) 
+    randPostNum = randint(0, lenOfMyName-1)
+    return render_template('random.html', randPost = myName[randPostNum])
+
 @app.route('/search.html')
 def search():
     return render_template('search.html')
@@ -75,11 +83,8 @@ def insert_newpost():
 
 @app.route('/makesearch', methods = ["GET", "POST"])
 def make_search():
-    print 1
     query = request.form["query"]
-    print 2
     postList = posts.makeSearch(query)
-    print 3
     return render_template('searchResults.html', posts = postList)
 
 @app.route('/upvote/<url_str>')
