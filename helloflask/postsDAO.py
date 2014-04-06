@@ -1,4 +1,5 @@
 import string
+from datetime import datetime
 
 class PostsDAO(object):
 
@@ -12,12 +13,17 @@ class PostsDAO(object):
 			if post['likes'] + post['dislikes'] > 0:
 				color = self.makePixel(int(post['likes']), int(post['dislikes']))
 			else: color = "black"
-			postList.append([post['name'], post['text'], post['url'], post['likes'], post['dislikes'], color])
+			postList.append([post['name'], post['text'], post['url'], post['likes'], post['dislikes'], color,
+						     post['ts']])
 		return postList
 
 	def insert_post(self, name, text):
+		datetime.now()
 		urlParse = self.parseText(text)
-		newPost = {"name": name, "text": text, "likes": 0, "dislikes": 0, "url": urlParse}
+		dateStr = str(datetime.now())
+		newPost = {
+			"name": name, "text": text, "likes": 0, "dislikes": 0, "url": urlParse,"ts": self.parseDate(dateStr)
+		}
 		self.posts.insert(newPost)
 
 	def get_post_with_url(self, url_text):
@@ -41,9 +47,12 @@ class PostsDAO(object):
 			if post['likes'] + post['dislikes'] > 0:
 				color = self.makePixel(int(post['likes']), int(post['dislikes']))
 			else: color = "black"
-			top10List.append([post['name'], post['text'], post['url'], post['likes'], post['dislikes'], color])
+			top10List.append([post['name'], post['text'], post['url'], post['likes'], post['dislikes'], color,
+							 post['ts']])
 		top10List.sort(likesCmp)
-		return top10List[:10]
+		if len(top10List) >= 10:
+			return top10List[:10]
+		else: return top10List
 
 	def getWorstTen(self):
 		top10List = []
@@ -51,9 +60,12 @@ class PostsDAO(object):
 			if post['likes'] + post['dislikes'] > 0:
 				color = self.makePixel(int(post['likes']), int(post['dislikes']))
 			else: color = "black"
-			top10List.append([post['name'], post['text'], post['url'], post['likes'], post['dislikes'], color])
+			top10List.append([post['name'], post['text'], post['url'], post['likes'], post['dislikes'], color,
+							 post['ts']])
 		top10List.sort(dislikesCmp)
-		return top10List[:10]
+		if len(top10List) >= 10:
+			return top10List[:10]
+		else: return top10List
 
 	def getText(self,url):
 		for post in self.posts.find():
@@ -81,6 +93,21 @@ class PostsDAO(object):
 		if secondDig > 9:
 			secondDig = decToHex[secondDig]
 		return str(firstDig) + str(secondDig)
+
+	def parseDate(self, dateStr):
+		months = {1:'Jan', 2:'Feb', 3:'Mar', 4:'Apr', 5:'May', 6:'Jun', 7:'Jul', 8:'Aug', 9:'Sep', 10:'Oct', 11:'Nov', 12:'Dec'}
+		date, time = dateStr.split()
+		year = date[:4]
+		month = months[int(date[5:7])]
+		day = date[8:]
+		hour, minute, seconds = time.split(":")
+		if int(hour) > 12:
+			amorpm = "PM"
+		else: amorpm = "AM"
+		hour = str(int(hour) % 12)
+		timeStamp = month + " " + day + ", " + year + ". " + hour + ":" + minute + " " + amorpm + "."
+		return timeStamp
+
 
 
 def likesCmp(a1, a2):
