@@ -9,8 +9,10 @@ class PostsDAO(object):
 	def get_posts(self):
 		postList = []
 		for post in self.posts.find():
-			#color = self.makePixel(int(post['likes']), int(post['dislikes']))
-			postList.append([post['name'], post['text'], post['url'], post['likes'], post['dislikes']])
+			if post['likes'] + post['dislikes'] > 0:
+				color = self.makePixel(int(post['likes']), int(post['dislikes']))
+			else: color = "black"
+			postList.append([post['name'], post['text'], post['url'], post['likes'], post['dislikes'], color])
 		return postList
 
 	def insert_post(self, name, text):
@@ -35,19 +37,21 @@ class PostsDAO(object):
 
 	def getBestTen(self):
 		top10List = []
-		#orderedPosts = self.posts.find().sort({"likes": -1})
-		#top10Posts = orderedPosts[:10]
 		for post in self.posts.find():
-			top10List.append([post['name'], post['text'], post['url'], post['likes'], post['dislikes']])
+			if post['likes'] + post['dislikes'] > 0:
+				color = self.makePixel(int(post['likes']), int(post['dislikes']))
+			else: color = "black"
+			top10List.append([post['name'], post['text'], post['url'], post['likes'], post['dislikes'], color])
 		top10List.sort(likesCmp)
 		return top10List[:10]
 
 	def getWorstTen(self):
 		top10List = []
-		#orderedPosts = self.posts.find().sort({"likes": -1})
-		#top10Posts = orderedPosts[:10]
 		for post in self.posts.find():
-			top10List.append([post['name'], post['text'], post['url'], post['likes'], post['dislikes']])
+			if post['likes'] + post['dislikes'] > 0:
+				color = self.makePixel(int(post['likes']), int(post['dislikes']))
+			else: color = "black"
+			top10List.append([post['name'], post['text'], post['url'], post['likes'], post['dislikes'], color])
 		top10List.sort(dislikesCmp)
 		return top10List[:10]
 
@@ -65,7 +69,7 @@ class PostsDAO(object):
 	def makePixel(self, likes, dislikes):
 		redD = 255*(float(likes)/(dislikes+likes))
 		greenD = 255 - redD
-		color = "#" + decToHex(redD) + decToHex(greenD) + "00"
+		color = "#" + self.decToHex(greenD) + self.decToHex(redD) + "00"
 		return color
 
 	def decToHex(self, dec):
