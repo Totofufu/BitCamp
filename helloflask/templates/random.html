@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Best of the Best | JudgeMeHarder</title>
+    <meta name="author(s)" content="Eileen Jiang, Tina Luo, Rohan Varma, Ian Qu-Wah" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts.css') }}" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" type="text/css" charset="utf-8">
+    <link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
+	</head>
+
+	<body id = "home">
+		<header>
+      <div id = "masthead">
+        <div style="clear: both">
+            <h1 style="float: left; padding-right:20px;"> JudgeMeHarder</h1>
+            <h5 style="padding-top: 10px; padding-left:30px;">a website for decisions and confessions</h5>
+      			<!--h1>JudgeMeHarder <h5>a website for decisions and confessions</h5></h1-->
+        <nav>
+          <ul style ="float:up">
+            <li><a href="base.html">Home</a></li>
+            <li><a href="submit.html">Submit</a></li>
+            <li><a href="faq.html">About Us</a></li>
+            <li><a href="bestbest.html">Best of the Best</a></li>
+            <li><a href="worstworst.html">Worst of the Worst</a></li>
+            <li><a href="random.html">Random Post!</a></li>
+            <li><a href="search.html">Search</a></li>
+          </ul>
+        </nav>
+        </div>
+      </div>
+		</header>
+        <div id="wrap">
+            <div id="randompost">
+            <h2>Random Post</h2><br>
+            <a href = "post/{{randPost[2]}}">
+                <div class = "name" id = "posts">
+                    <h2>{{randPost[1]}}</h2>
+                    <h3> {{randPost[0]}} </h3>
+                </div>
+              </a>
+                <div style="clear:both; background-color: {{randPost[5]}}" id ="rate-bar">
+                    <h5 style="float:left;"><a href="/upvote/{{randPost[2]}}" id="upvote">You Go Bro! - {{randPost[3]}}</a></h5>
+                    <h5 style="float:right;"><a href="/downvote/{{randPost[2]}}" id="downvote">{{randPost[4]}} - Uhh.. Good luck with that?</a></h5>
+                </div>
+            </div>
+        </div>
+	</body>
+
+</html>
