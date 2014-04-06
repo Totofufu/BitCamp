@@ -13,8 +13,7 @@ class PostsDAO(object):
 			if post['likes'] + post['dislikes'] > 0:
 				color = self.makePixel(int(post['likes']), int(post['dislikes']))
 			else: color = "black"
-			postList.append([post['name'], post['text'], post['url'], post['likes'], post['dislikes'], color,
-						     post['ts']])
+			postList.append([post['name'], post['text'], post['url'], post['likes'], post['dislikes'], color])
 		return postList
 
 	def insert_post(self, name, text):
@@ -22,8 +21,7 @@ class PostsDAO(object):
 		urlParse = self.parseText(text)
 		dateStr = str(datetime.now())
 		newPost = {
-			"name": name, "text": text, "likes": 0, "dislikes": 0, "url": urlParse,"ts": self.parseDate(dateStr)
-		}
+			"name": name, "text": text, "likes": 0, "dislikes": 0, "url": urlParse}
 		self.posts.insert(newPost)
 
 	def get_post_with_url(self, url_text):
@@ -47,8 +45,7 @@ class PostsDAO(object):
 			if post['likes'] + post['dislikes'] > 0:
 				color = self.makePixel(int(post['likes']), int(post['dislikes']))
 			else: color = "black"
-			top10List.append([post['name'], post['text'], post['url'], post['likes'], post['dislikes'], color,
-							 post['ts']])
+			top10List.append([post['name'], post['text'], post['url'], post['likes'], post['dislikes'], color])
 		top10List.sort(likesCmp)
 		if len(top10List) >= 10:
 			return top10List[:10]
@@ -60,8 +57,7 @@ class PostsDAO(object):
 			if post['likes'] + post['dislikes'] > 0:
 				color = self.makePixel(int(post['likes']), int(post['dislikes']))
 			else: color = "black"
-			top10List.append([post['name'], post['text'], post['url'], post['likes'], post['dislikes'], color,
-							 post['ts']])
+			top10List.append([post['name'], post['text'], post['url'], post['likes'], post['dislikes'], color])
 		top10List.sort(dislikesCmp)
 		if len(top10List) >= 10:
 			return top10List[:10]

@@ -5,10 +5,43 @@ from flask import Flask, render_template, redirect, request, url_for
 app = Flask(__name__)
 
 @app.route('/')
+@app.route('/<pageNum>')
 @app.route('/base.html')
-def homePage():
+def homePage(pageNum = 1):
+    pageNum = int(pageNum)
+    if (pageNum == 1): has_back = False
+    else: has_back = True
     myName = posts.get_posts()
-    return render_template('base.html', posts = myName[::-1])
+    lenOfMyName = len(myName)
+    print "len: ", lenOfMyName
+    myName = myName[::-1]
+    postNum = (pageNum-1)*10 
+    if (10*pageNum <= lenOfMyName):
+        myName = myName[postNum:postNum+10]
+        has_next = True
+    else:
+        myName = myName[postNum:]
+        has_next = False
+    #define all 4 scenarios
+    #no back or next
+    if not (has_next or has_back): no_move = True
+    else: no_move = False
+    print "no move", no_move
+    #on first page, so no back, but 10+ posts
+    if (has_next and not has_back): next = True
+    else: next = False
+    print "next: ", next
+    #on last page
+    if (not has_next and has_back): back = True
+    else: back = False
+    print "back: ", back
+    #has both back and next buttons
+    if (has_next and has_back): both = True
+    else: both = False
+    print "both: ", both
+    return render_template('base.html', posts = myName, pageNBack = pageNum-1, 
+        pageNNext = pageNum+1, pageN = pageNum, noMove = no_move, goNext = next, goBack = back, 
+        goBoth = both)
 
 @app.route('/faq.html')
 def faqPage():
@@ -69,4 +102,5 @@ database = connection.app23759697
 posts = postsDAO.PostsDAO(database)
 
 if __name__ == '__main__':
+    app.debug = True
     app.run()
