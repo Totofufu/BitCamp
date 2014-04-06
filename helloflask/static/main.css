@@ -1,8 +1,6 @@
 /* CSS */
 
-* {
-margin: 0;
-}
+* { margin: 0;}
 html, body {
 height: 100%;
 }
@@ -57,12 +55,11 @@ nav ul li a:hover {
 /* HEADER */
 header {
 	margin-left: 0px;
-	margin-top: 0px;
+	margin-top: 40px;
 }
 
 header h1 { 
 	color: #000; 
-	height: calc(100%-10px);
 }
 
 header h5 { padding-top: 0px;}
