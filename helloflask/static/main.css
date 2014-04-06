@@ -22,7 +22,7 @@ padding-left: 20px;
 body {
 	margin: 0;
 	padding: 0;
-	background: #BBFFFF;
+	background: #94E3F4;
 	color: SeaGreen;
 	text-align: left;
 	padding-top: 0px;
@@ -233,4 +233,50 @@ td { padding: 10px; }
 	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
 	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
 	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+}
+
+/* CLOUD ANIMATION */
+
+@keyframes animatedBackground {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 0;
+    }
+}
+@-webkit-keyframes animatedBackground {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 0;
+    }
+}
+@-ms-keyframes animatedBackground {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 0;
+    }
+}
+@-moz-keyframes animatedBackground {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 0;
+    }
+}
+#wrap {
+    height:200%;
+    width:100%;
+    background: url(http://addtwitter-followers.com/wp-content/themes/twentyten/images/bck.jpg) top no-repeat #94E3F4;
+    background-position: 0px 0px;
+    background-repeat: repeat-x;
+    animation: animatedBackground 150s linear infinite;
+    -ms-animation: animatedBackground 150s linear infinite;
+    -moz-animation: animatedBackground 150s linear infinite;
+    -webkit-animation: animatedBackground 150s linear infinite;
 }
