@@ -1,5 +1,4 @@
 import string
-from datetime import datetime
 
 class PostsDAO(object):
 
@@ -17,10 +16,7 @@ class PostsDAO(object):
 		return postList
 
 	def insert_post(self, name, text):
-		datetime.now()
 		urlParse = self.parseText(text)
-		dateStr = str(datetime.now())
-		date = self.parseDate(dateStr)
 		newPost = {
 			"name": name, "text": text, "likes": 0, "dislikes": 0, "url": urlParse}
 		self.posts.insert(newPost)
@@ -94,21 +90,21 @@ class PostsDAO(object):
 			secondDig = decToHex[secondDig]
 		return str(firstDig) + str(secondDig)
 
-	def parseDate(self, dateStr):
-		months = {1:'Jan', 2:'Feb', 3:'Mar', 4:'Apr', 5:'May', 6:'Jun', 7:'Jul', 8:'Aug', 9:'Sep', 10:'Oct', 11:'Nov', 12:'Dec'}
-		date, time = dateStr.split()
-		year = date[:4]
-		month = months[int(date[5:7])]
-		day = date[8:]
-		hour, minute, seconds = time.split(":")
-		if int(hour) >= 12:
-			amorpm = "PM"
-		else: amorpm = "AM"
-		if int(hour) != 12:
-			hour = int(hour) % 12
-		if int(hour) == 0: hour = "12"
-		timeStamp = month + " " + day + ", " + year + ". " + hour + ":" + minute + " " + amorpm + "."
-		return timeStamp
+	# def parseDate(self, dateStr):
+	# 	months = {1:'Jan', 2:'Feb', 3:'Mar', 4:'Apr', 5:'May', 6:'Jun', 7:'Jul', 8:'Aug', 9:'Sep', 10:'Oct', 11:'Nov', 12:'Dec'}
+	# 	date, time = dateStr.split()
+	# 	year = date[:4]
+	# 	month = months[int(date[5:7])]
+	# 	day = date[8:]
+	# 	hour, minute, seconds = time.split(":")
+	# 	if int(hour) >= 12:
+	# 		amorpm = "PM"
+	# 	else: amorpm = "AM"
+	# 	if int(hour) != 12:
+	# 		hour = int(hour) % 12
+	# 	if int(hour) == 0: hour = "12"
+	# 	timeStamp = month + " " + day + ", " + year + ". " + hour + ":" + minute + " " + amorpm + "."
+	# 	return timeStamp
 
 
 
