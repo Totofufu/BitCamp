@@ -28,8 +28,8 @@
         </div>
       </div>
 		</header>
-
-    <div id = "posts-section">
+        <div id="wrap">
+        <div id = "posts-section">
             <h2 style="margin-left:30px; margin-top:30px;"> The 10 Worst of the Worst </h2>
 
             {% for post in posts %}
@@ -44,6 +44,7 @@
                     <h5 style="float:right;"><a href="/downvote/{{post[2]}}" id="downvote">{{post[4]}} - Uhh.. Good luck with that?</a></h5>
                 </div>
             {% endfor %}
+    </div>
     </div>
 	</body>
 
