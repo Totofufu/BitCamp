@@ -67,6 +67,10 @@ def worstWorst():
     worst10 = posts.getWorstTen()
     return render_template('worstworst.html', posts = worst10)
 
+@app.route('/search.html')
+def search():
+    return render_template('search.html')
+
 @app.route('/newpost', methods = ['GET','POST'])
 def insert_newpost():
     name = request.form["name"]

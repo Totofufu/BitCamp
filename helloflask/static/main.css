@@ -232,6 +232,45 @@ td { padding: 10px; }
 	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
 }
 
+/* SEARCH PAGE FUNCTIONS */
+
+#searchpage{
+	margin-top: 150px;
+	margin-left: 20%;
+	margin-right: 20%;
+	padding-top: 20px;
+	background-color: #E9967A;
+	border-radius: 15px;
+}
+
+#searchbox{
+	border-radius: 10px;
+	height: 75px; 
+	width: 75%;
+	font-size: 175%;
+	padding: 50px;
+	margin-bottom: 34px;
+	margin-left: 20px;
+}
+
+#searchbutton{
+	padding: 30px 30px 22px !important;
+	font-size: 25px !important;
+	background-color: SeaGreen;
+	font-weight: bold;
+	text-shadow: 1px 1px #57D6C7;
+	color: #ffffff;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: 1px solid #57D6C7;
+	cursor: pointer;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+}
+
+
 /* CLOUD ANIMATION */
 
 @keyframes animatedBackground {
