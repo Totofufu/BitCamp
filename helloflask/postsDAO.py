@@ -91,11 +91,12 @@ class PostsDAO(object):
 		return str(firstDig) + str(secondDig)
 
 	def makeSearch(self, query):
+		query = query.lower()
 		postsList = []
 		postScores = []
 		for word in query.split():
 			for post in self.posts.find():
-				if (word in post['text']) or (word in post["name"]):
+				if (word in post['text'].lower()) or (word in post["name"].lower()):
 					if post in postsList:
 						postScores[postsList.index(post)] += 1
 					else:
