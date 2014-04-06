@@ -1,5 +1,24 @@
 /* CSS */
 
+* {
+margin: 0;
+}
+html, body {
+height: 100%;
+}
+.wrapper {
+min-height: 100%;
+height: auto !important;
+height: 100%;
+margin: 0 auto -4em;
+}
+.footer, .push {
+height: 4em;
+background-color: #E9967A;
+padding-top: 20px;
+padding-left: 20px;
+}
+
 body {
 	margin: 0;
 	padding: 0;
@@ -59,6 +78,7 @@ nav ul {
 	list-style: none;
 	line-height: normal;
 	padding-left: 5px;
+	padding-top: 20px;
 }
 
 nav li a {
