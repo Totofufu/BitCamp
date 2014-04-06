@@ -13,8 +13,7 @@ class PostsDAO(object):
 			if post['likes'] + post['dislikes'] > 0:
 				color = self.makePixel(int(post['likes']), int(post['dislikes']))
 			else: color = "black"
-			postList.append([post['name'], post['text'], post['url'], post['likes'], post['dislikes'], color,
-							post['tf']])
+			postList.append([post['name'], post['text'], post['url'], post['likes'], post['dislikes'], color])
 		return postList
 
 	def insert_post(self, name, text):
@@ -23,7 +22,7 @@ class PostsDAO(object):
 		dateStr = str(datetime.now())
 		date = self.parseDate(dateStr)
 		newPost = {
-			"name": name, "text": text, "likes": 0, "dislikes": 0, "url": urlParse, "tf": date }
+			"name": name, "text": text, "likes": 0, "dislikes": 0, "url": urlParse}
 		self.posts.insert(newPost)
 
 	def get_post_with_url(self, url_text):
@@ -47,8 +46,7 @@ class PostsDAO(object):
 			if post['likes'] + post['dislikes'] > 0:
 				color = self.makePixel(int(post['likes']), int(post['dislikes']))
 			else: color = "black"
-			top10List.append([post['name'], post['text'], post['url'], post['likes'], post['dislikes'], color,
-							post['tf']])
+			top10List.append([post['name'], post['text'], post['url'], post['likes'], post['dislikes'], color])
 		top10List.sort(likesCmp)
 		if len(top10List) >= 10:
 			return top10List[:10]
@@ -60,8 +58,7 @@ class PostsDAO(object):
 			if post['likes'] + post['dislikes'] > 0:
 				color = self.makePixel(int(post['likes']), int(post['dislikes']))
 			else: color = "black"
-			top10List.append([post['name'], post['text'], post['url'], post['likes'], post['dislikes'], color,
-							post['tf']])
+			top10List.append([post['name'], post['text'], post['url'], post['likes'], post['dislikes'], color])
 		top10List.sort(dislikesCmp)
 		if len(top10List) >= 10:
 			return top10List[:10]
@@ -73,8 +70,7 @@ class PostsDAO(object):
 				if post['likes'] + post['dislikes'] > 0:
 					color = self.makePixel(int(post['likes']), int(post['dislikes']))
 				else: color = "black"
-				return [post["text"],post["name"],post["url"], post["likes"], post["dislikes"], color,
-						post['tf']]
+				return [post["text"],post["name"],post["url"], post["likes"], post["dislikes"], color]
 
 	def incrementUp(self, url_str):
 		self.posts.update({"url":url_str},{"$inc":{"likes":1}})
