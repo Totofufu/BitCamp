@@ -79,6 +79,7 @@ def make_search():
     query = request.form["query"]
     print 2
     postList = posts.makeSearch(query)
+    print 3
     return render_template('searchResults.html', posts = postList)
 
 @app.route('/upvote/<url_str>')
