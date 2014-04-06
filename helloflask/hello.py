@@ -106,5 +106,5 @@ database = connection.app23759697
 posts = postsDAO.PostsDAO(database)
 
 if __name__ == '__main__':
-    app.debug = False
+    app.debug = True
     app.run()
