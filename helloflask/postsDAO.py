@@ -106,11 +106,14 @@ class PostsDAO(object):
 		month = months[int(date[5:7])]
 		day = date[8:]
 		hour, minute, seconds = time.split(":")
+		print hour
 		if int(hour) >= 12:
 			amorpm = "PM"
 		else: amorpm = "AM"
+		print hour
 		if int(hour) != 12:
-			hour = str(int(hour) % 12)
+			hour = int(hour) % 12
+		print hour
 		if int(hour) == 0: hour = "12"
 		timeStamp = month + " " + day + ", " + year + ". " + hour + ":" + minute + " " + amorpm + "."
 		return timeStamp
